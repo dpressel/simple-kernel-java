@@ -163,7 +163,7 @@ public class SimpleKernel
         }
     }
 
-    int globalExecutionCount = 0;
+    int globalExecutionCount = 1;
 
     private void sendStatus(Message msgParent, String status) throws Exception
     {
@@ -183,7 +183,7 @@ public class SimpleKernel
 
         Message stream = new Message(msg.header, "stream");
         stream.content.put("name", "stdout");
-        stream.content.put("text", "hello, world");
+        stream.content.put("text", "hello, world\n");
         stream.send(iopubChannel, key);
 
         Message executeResult = new Message(msg.header, "execute_result");

@@ -106,9 +106,12 @@ public class Message
         }
         zmsg.add("<IDS|MSG>");
         byte[] headerBytes  = OBJECT_MAPPER.writeValueAsBytes(header);
+
         byte[] parentBytes = OBJECT_MAPPER.writeValueAsBytes(parentHeader);
         byte[] metaBytes = OBJECT_MAPPER.writeValueAsBytes(metadata);
+        LOG.debug("[SEND] metadata: " + new String(metaBytes));
         byte[] contentBytes = OBJECT_MAPPER.writeValueAsBytes(content);
+        LOG.debug("[SEND] content: " + new String(contentBytes));
         byte[] signature  = Utils.sign(key, headerBytes, parentBytes, metaBytes, contentBytes);
         signature = DatatypeConverter.printHexBinary(signature).toLowerCase().getBytes();
         zmsg.add(signature);
