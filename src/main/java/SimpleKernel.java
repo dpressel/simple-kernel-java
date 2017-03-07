@@ -30,7 +30,7 @@ public class SimpleKernel
     String sessionId;
     Poller items;
     Context context;
-    private static final Logger LOG = LoggerFactory.getLogger(Message.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SimpleKernel.class);
     boolean exiting;
 
 
@@ -176,7 +176,7 @@ public class SimpleKernel
         LOG.debug("simple-kernel-java Executing");
         sendStatus(msg, "busy");
 
-        Message executeInput = new Message(msg.header, "execution_count");
+        Message executeInput = new Message(msg.header, "execute_input");
         executeInput.content.put("execution_count", this.globalExecutionCount);
         executeInput.content.put("code", msg.content.get("code"));
         executeInput.send(iopubChannel, key);
