@@ -1,7 +1,6 @@
 ## simple-kernel-java
 
-This is a port of https://github.com/dsblank/simple_kernel/ using java, jeromq and jackson.  It shows how to build the simplest kernel possible for Jupyter.
-
+This is a port of https://github.com/dsblank/simple_kernel/ using java, jeromq and jackson.  It shows how to build the simplest kernel possible for Jupyter.  The simple kernel port (and original) don't really show much interaction, but are useful for how to use ZMQ to make a kernel.  I have another project https://github.com/dpressel/simple-kernel-nashorn (a JavaScript kernel using Nashorn) which is almost as simple to write, and shows you how to do something a bit more useful!
 ### Building it
 
 Build the kernel and install it:

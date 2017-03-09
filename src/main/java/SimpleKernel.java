@@ -196,12 +196,6 @@ public class SimpleKernel
 
         sendStatus(msg, "idle");
 
-        Map<String, Object> metadata = new HashMap<>();
-        metadata.put("dependencies_met", true);
-        metadata.put("engine", sessionId);
-        metadata.put("status", "ok");
-        metadata.put("started", Utils.isoDateNow());
-
         Message executeReply = new Message(msg.header, "execute_reply");
         executeReply.content.put("status", "ok");
         executeReply.content.put("execution_count", globalExecutionCount);
